@@ -5,8 +5,25 @@ sealed interface Command {
     fun invoke()
 }
 
+//class Show(val nameForSearch:String) : Command {
+//    override fun isValid(): Boolean {
+//        return true
+//    }
+//
+//    override fun invoke() {
+//        if (people.isEmpty()) {
+//            println("Not initialized\n")
+//        } else {
+//            println(people[nameForSearch])
+//        }
+//    }
+//
+//}
+
+
+
 class Show : Command {
-    override fun isValid(): Boolean {
+        override fun isValid(): Boolean {
         return true
     }
 
@@ -14,10 +31,9 @@ class Show : Command {
         if (people.isEmpty()) {
             println("Not initialized\n")
         } else {
-            println(people.values.last())
+            println(lastCommand)
         }
     }
-
 }
 
 class Add : Command {
@@ -79,10 +95,15 @@ class Add : Command {
         val person = if (people.containsKey(name)) people[name] else Person(name)
         if (emailPerson.isNotEmpty()) {
             person?.addEmail(emailPerson)
+            lastCommand = "add $name email $emailPerson"
         }
-        if (phonePerson.isNotEmpty())
+        if (phonePerson.isNotEmpty()) {
             person?.addPhones(phonePerson)
+            lastCommand = "add $name phone $phonePerson"
+        }
         people[name] = person!!
+
+
     }
 }
 

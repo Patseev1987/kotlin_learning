@@ -5,7 +5,7 @@ import java.util.LinkedHashMap
 
 var exit = false
 val people: MutableMap<String,Person> = LinkedHashMap()
-
+lateinit var lastCommand:String
 
 fun readCommand(commandName: String): Command {
     return when (commandName.lowercase()) {
@@ -25,7 +25,7 @@ fun main() {
         | 
     """.trimMargin()
         )
-        val commandName = readln()
+        val commandName = readln().trim()
         println(
             """You entered:
         |$commandName
