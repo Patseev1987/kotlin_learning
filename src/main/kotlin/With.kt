@@ -1,13 +1,38 @@
 fun main() {
-    var x =10
-    println(x)
-   val b =  with(x) {
-        this+100
-    }
-    println(b)
-    println(x)
+//    var x =10
+//    println(x)
+//   val b =  with(x) {
+//        this+100
+//    }
+//    println(b)
+//    println(x)
+//
+//    println(createMap())
 
-    println(createMap())
+
+
+
+
+val str = "[sadasdad]"
+
+    val start = str.startsWith("[")
+    val end =str.endsWith("]")
+val common = (str.startsWith("[") && str.endsWith("]"))
+    println(start)
+    println(end)
+    println(common)
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 //    fun <T> T.myApply (f:T.()-> Unit):T{
